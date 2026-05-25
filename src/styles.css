@@ -251,7 +251,13 @@ p {
   color: #fffaf0;
 }
 
-.button.secondary:hover {
+.button.tertiary {
+  background: rgba(109, 167, 143, 0.13);
+  color: #fffaf0;
+}
+
+.button.secondary:hover,
+.button.tertiary:hover {
   border-color: rgba(255, 250, 240, 0.3);
   background: rgba(255, 250, 240, 0.12);
 }
@@ -987,6 +993,24 @@ p {
   font-weight: 780;
 }
 
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px 16px;
+}
+
+.footer-links a {
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.footer-links a:hover {
+  color: #101512;
+  transform: translateY(-1px);
+}
+
 .reveal {
   animation: revealUp 720ms ease both;
   animation-delay: var(--delay, 0ms);
@@ -1217,5 +1241,9 @@ p {
   .site-footer {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
   }
 }

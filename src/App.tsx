@@ -149,6 +149,13 @@ const excludedItems = [
 
 const cssVars = (vars: Record<string, string>) => vars as CSSProperties;
 
+const contactLinks = {
+  general: "mailto:hello@craftsure.net?subject=CraftSure%20General%20Inquiry",
+  partners: "mailto:partners@craftsure.net?subject=CraftSure%20Partner%20Inquiry",
+  investors: "mailto:investors@craftsure.net?subject=CraftSure%20Strategic%20Demo%20Request",
+  social: "mailto:social@craftsure.net?subject=CraftSure%20Media%20%2F%20Collaboration%20Inquiry",
+};
+
 export function App() {
   return (
     <main>
@@ -175,10 +182,7 @@ export function App() {
             explainable trust signals, and partner-ready decision intelligence.
           </p>
           <div className="hero-actions">
-            <a
-              className="button primary"
-              href="mailto:partners@craftsure.ai?subject=CraftSure%20Strategic%20Demo%20Request"
-            >
+            <a className="button primary" href={contactLinks.investors}>
               Request Strategic Demo
               <ArrowRight size={18} aria-hidden="true" />
             </a>
@@ -410,12 +414,13 @@ export function App() {
         <span className="eyebrow">Strategic demo</span>
         <h2>The future renovation interface is calmer, clearer, and more coordinated.</h2>
         <div className="hero-actions">
-          <a
-            className="button primary"
-            href="mailto:partners@craftsure.ai?subject=CraftSure%20Strategic%20Demo%20Request"
-          >
+          <a className="button primary" href={contactLinks.investors}>
             Request Strategic Demo
             <ArrowRight size={18} aria-hidden="true" />
+          </a>
+          <a className="button tertiary" href={contactLinks.partners}>
+            Partner Inquiry
+            <Building2 size={18} aria-hidden="true" />
           </a>
           <a className="button secondary" href="#engine">
             Explore Product Vision
@@ -426,7 +431,13 @@ export function App() {
 
       <footer className="site-footer">
         <span>CraftSure Investor Demo</span>
-        <a href="#top">Back to top</a>
+        <div className="footer-links" aria-label="CraftSure public contact links">
+          <a href={contactLinks.general}>hello@craftsure.net</a>
+          <a href={contactLinks.partners}>partners@craftsure.net</a>
+          <a href={contactLinks.investors}>investors@craftsure.net</a>
+          <a href={contactLinks.social}>social@craftsure.net</a>
+          <a href="#top">Back to top</a>
+        </div>
       </footer>
     </main>
   );
