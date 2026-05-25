@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CraftSure">
+  <rect width="64" height="64" rx="14" fill="#13231f"/>
+  <path d="M32 9 49 16v13c0 12-7 21-17 26-10-5-17-14-17-26V16l17-7Z" fill="#2fc07a"/>
+  <path d="m23 32 6 6 13-16" fill="none" stroke="#f6fff9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
