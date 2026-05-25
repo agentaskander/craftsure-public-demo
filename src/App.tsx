@@ -1,119 +1,153 @@
 import {
   ArrowRight,
   BadgeCheck,
+  Banknote,
   Building2,
   CheckCircle2,
+  CircleDollarSign,
   ClipboardCheck,
+  Clock3,
+  Factory,
   Home,
   Landmark,
   Layers3,
   ListChecks,
   Map,
+  PackageCheck,
+  Radar,
   ShieldCheck,
   Sparkles,
   Store,
+  Users,
+  Workflow,
 } from "lucide-react";
+import type { CSSProperties } from "react";
 
-const dashboardCards = [
+const heroSignals = [
+  ["Project confidence surface", "Preview mode"],
+  ["Scope clarity visualization", "Guided intake"],
+  ["Contractor alignment", "Partner review"],
+  ["Renovation risk timeline", "Explainable"],
+];
+
+const partnerPanels = [
+  "Local contractor network",
+  "HELOC readiness partner",
+  "Warranty pathway",
+];
+
+const engineStages = [
   {
-    label: "Project Confidence",
-    value: "Preview Only",
-    detail: "Illustrative readiness snapshot for a public demo.",
-    icon: CheckCircle2,
+    title: "Project Intake",
+    insight: "Homeowner intent is translated into a clear renovation brief.",
+    output: "Room goals, constraints, budget posture, decision timeline",
+    icon: Home,
   },
   {
-    label: "Scope Clarity",
-    value: "Guided",
-    detail: "Structured questions help shape a renovation plan.",
+    title: "Scope Structuring",
+    insight: "Ambiguity becomes organized workstreams and planning questions.",
+    output: "Scope lanes, dependencies, assumptions, next-step gaps",
     icon: ClipboardCheck,
   },
   {
-    label: "Contractor Fit",
-    value: "Partner Review",
-    detail: "Sample partner workflow for evaluating next steps.",
+    title: "Trust & Risk Review",
+    insight: "Trust signals and project risks are made visible in plain language.",
+    output: "Readiness checks, risk flags, confidence explanations",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Partner Coordination",
+    insight: "Relevant partners receive cleaner context at the right moment.",
+    output: "Contractor, financing, protection, and marketplace handoffs",
+    icon: Workflow,
+  },
+  {
+    title: "Renovation Confidence",
+    insight: "The homeowner sees a coordinated path before committing.",
+    output: "Decision brief, stakeholder map, action-ready plan",
+    icon: CheckCircle2,
+  },
+];
+
+const beforeStates = [
+  "fragmented quotes",
+  "contractor uncertainty",
+  "budget anxiety",
+  "hidden risk",
+  "disconnected tools",
+];
+
+const afterStates = [
+  "structured project clarity",
+  "explainable workflows",
+  "coordinated stakeholders",
+  "guided decision confidence",
+  "partner-assisted renovation flow",
+];
+
+const ecosystemNodes = [
+  { label: "Homeowners", icon: Home, className: "node-homeowners" },
+  { label: "Contractors", icon: Building2, className: "node-contractors" },
+  { label: "Lenders", icon: Landmark, className: "node-lenders" },
+  { label: "Insurers", icon: ShieldCheck, className: "node-insurers" },
+  { label: "Real estate agents", icon: Users, className: "node-agents" },
+  { label: "Property managers", icon: Layers3, className: "node-managers" },
+  { label: "Material suppliers", icon: Factory, className: "node-suppliers" },
+  { label: "Marketplaces", icon: Store, className: "node-marketplaces" },
+];
+
+const trustPanels = [
+  {
+    title: "Project risk indicators",
+    body: "Potential scope ambiguity, timing pressure, and stakeholder gaps are displayed as public-safe placeholders.",
+    icon: Radar,
+  },
+  {
+    title: "Explainable checklist panels",
+    body: "Homeowners see why a next step matters before they speak with a contractor or partner.",
+    icon: ListChecks,
+  },
+  {
+    title: "Renovation readiness",
+    body: "The interface frames readiness as a transparent conversation, not a black-box verdict.",
     icon: BadgeCheck,
   },
   {
-    label: "Risk Flags",
-    value: "Explainable Checklist",
-    detail: "Plain-language placeholders, not live formulas.",
-    icon: ListChecks,
-  },
-];
-
-const journey = [
-  {
-    title: "Project idea",
-    body: "A homeowner starts with a kitchen, bath, addition, repair, or whole-home goal.",
-  },
-  {
-    title: "Structured intake",
-    body: "CraftSure turns intent into organized project context and planning questions.",
-  },
-  {
-    title: "Scope/risk review",
-    body: "The demo surfaces public-safe examples of scope clarity and uncertainty.",
-  },
-  {
-    title: "Contractor/partner options",
-    body: "Partners can meet homeowners at the right decision point.",
-  },
-  {
-    title: "Confident renovation decision",
-    body: "The homeowner moves forward with clearer expectations and next steps.",
-  },
-];
-
-const partners = [
-  {
-    title: "Contractor networks",
+    title: "Contractor fit surfaces",
+    body: "Fit is represented through sample alignment cues and partner review states.",
     icon: Building2,
-    body: "Support qualified demand, cleaner project context, and more prepared homeowner conversations.",
   },
   {
-    title: "Real estate agents",
-    icon: Home,
-    body: "Help buyers and sellers understand renovation feasibility before major decisions.",
+    title: "Timeline uncertainty warnings",
+    body: "Schedule sensitivity is shown with plain-language notices and calm decision paths.",
+    icon: Clock3,
   },
   {
-    title: "Lenders / HELOC partners",
-    icon: Landmark,
-    body: "Connect financing moments to a better-defined project and homeowner intent.",
-  },
-  {
-    title: "Insurers / warranty partners",
-    icon: ShieldCheck,
-    body: "Introduce protection workflows around renovation planning and project readiness.",
-  },
-  {
-    title: "Property managers",
-    icon: Layers3,
-    body: "Organize repair and upgrade decisions across recurring property needs.",
-  },
-  {
-    title: "Marketplaces",
-    icon: Store,
-    body: "Add a trust-oriented decision layer before high-consideration renovation purchases.",
+    title: "Permit/compliance placeholders",
+    body: "Jurisdiction and compliance needs are presented as review cues for qualified partners.",
+    icon: PackageCheck,
   },
 ];
 
-const publicItems = [
-  "product vision",
-  "sample workflow",
-  "sanitized mock interface",
-  "partner opportunity",
-  "trust-layer positioning",
+const infrastructurePoints = [
+  "structured renovation workflows",
+  "standardized project understanding",
+  "reusable trust signals",
+  "partner coordination layer",
+  "cross-stakeholder intelligence",
+  "compounding renovation data network",
 ];
 
-const privateItems = [
+const excludedItems = [
   "ontology internals",
   "scoring logic",
-  "data models",
   "prompts",
   "embeddings",
   "orchestration workflows",
-  "internal datasets",
+  "private datasets",
 ];
+
+const cssVars = (vars: Record<string, string>) => vars as CSSProperties;
 
 export function App() {
   return (
@@ -124,164 +158,236 @@ export function App() {
           <span>CraftSure</span>
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#demo-flow">Demo Flow</a>
-          <a href="#partners">Partners</a>
-          <a href="#thesis">Thesis</a>
-          <a href="#private">Private</a>
+          <a href="#engine">Engine</a>
+          <a href="#story">Story</a>
+          <a href="#ecosystem">Ecosystem</a>
+          <a href="#trust">Trust</a>
+          <a href="#boundary">Boundary</a>
         </nav>
       </header>
 
       <section className="hero" id="top">
-        <div className="hero-copy">
-          <span className="eyebrow">Investor Demo</span>
-          <h1>Renovation trust infrastructure for homeowners and ecosystem partners.</h1>
+        <div className="hero-copy reveal">
+          <span className="eyebrow">Renovation intelligence platform</span>
+          <h1>Renovation decisions deserve intelligence infrastructure.</h1>
           <p>
-            CraftSure is an AI-assisted renovation intelligence demo that shows how
-            homeowners can move from project uncertainty to structured, partner-ready
-            renovation decisions.
+            CraftSure transforms renovation uncertainty into structured workflows,
+            explainable trust signals, and partner-ready decision intelligence.
           </p>
           <div className="hero-actions">
             <a
               className="button primary"
-              href="mailto:partners@craftsure.ai?subject=CraftSure%20Partner%20Demo%20Request"
+              href="mailto:partners@craftsure.ai?subject=CraftSure%20Strategic%20Demo%20Request"
             >
-              Request Partner Demo
+              Request Strategic Demo
               <ArrowRight size={18} aria-hidden="true" />
             </a>
-            <a className="button secondary" href="#demo-flow">
-              View Demo Flow
+            <a className="button secondary" href="#engine">
+              Explore Product Vision
               <Map size={18} aria-hidden="true" />
             </a>
           </div>
         </div>
 
-        <aside className="product-shell" aria-label="CraftSure demo dashboard preview">
-          <div className="mock-window">
-            <div className="window-chrome" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-            </div>
-            <div className="mock-header">
-              <div>
-                <span className="mock-kicker">Demo dashboard</span>
-                <h2>Project Readiness Preview</h2>
+        <aside className="hero-visual reveal" aria-label="Simulated CraftSure product interface">
+          <div className="intelligence-console">
+            <div className="console-topbar">
+              <div className="window-dots" aria-hidden="true">
+                <span />
+                <span />
+                <span />
               </div>
-              <span className="demo-badge">Public-safe</span>
+              <span>Live demo simulation</span>
             </div>
-            <div className="mock-summary">
+            <div className="project-brief">
               <div>
-                <strong>Kitchen remodel</strong>
-                <span>Sample homeowner journey</span>
+                <span className="micro-label">Homeowner project summary</span>
+                <strong>Kitchen refresh + wall opening</strong>
+                <p>Permit sensitivity, budget clarity, and contractor readiness require guided review.</p>
               </div>
-              <Sparkles size={22} aria-hidden="true" />
+              <div className="confidence-orbit" aria-hidden="true">
+                <span>Preview</span>
+              </div>
             </div>
-            <div className="dashboard-grid">
-              {dashboardCards.map(({ label, value, detail, icon: Icon }) => (
-                <article className="metric-card" key={label}>
-                  <Icon size={19} aria-hidden="true" />
+            <div className="signal-grid">
+              {heroSignals.map(([label, value]) => (
+                <article className="signal-tile" key={label}>
                   <span>{label}</span>
                   <strong>{value}</strong>
-                  <p>{detail}</p>
                 </article>
               ))}
             </div>
-            <p className="mock-disclaimer">
-              Demo placeholders only. This interface does not show live evaluation
-              methods or confidential product systems.
-            </p>
+            <div className="timeline-panel">
+              <div className="timeline-header">
+                <span className="micro-label">Renovation risk timeline</span>
+                <span>Placeholder insight path</span>
+              </div>
+              <div className="timeline-track" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+                <i />
+              </div>
+              <div className="timeline-labels">
+                <span>Intake</span>
+                <span>Scope</span>
+                <span>Review</span>
+                <span>Decision</span>
+              </div>
+            </div>
+            <div className="partner-recs">
+              <span className="micro-label">Partner recommendation panels</span>
+              {partnerPanels.map((panel) => (
+                <div className="partner-rec" key={panel}>
+                  <Sparkles size={15} aria-hidden="true" />
+                  <span>{panel}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </aside>
       </section>
 
-      <section className="section dashboard-section" id="dashboard">
-        <div className="section-heading">
-          <span className="eyebrow">Demo dashboard mockup</span>
-          <h2>Readable signals for a public preview, not exposed product logic.</h2>
+      <section className="section engine-section" id="engine">
+        <div className="section-heading reveal">
+          <span className="eyebrow">Renovation intelligence engine</span>
+          <h2>A public-safe workflow map for the renovation decision lifecycle.</h2>
           <p>
-            The cards below are sanitized placeholders designed to communicate product
-            direction without revealing private implementation details.
+            The demo shows how visible product states can coordinate homeowners and
+            partners without revealing confidential execution systems.
           </p>
         </div>
-        <div className="wide-card-grid">
-          {dashboardCards.map(({ label, value, detail, icon: Icon }) => (
-            <article className="signal-card" key={label}>
-              <div className="signal-icon">
-                <Icon size={22} aria-hidden="true" />
-              </div>
-              <span>{label}</span>
-              <strong>{value}</strong>
-              <p>{detail}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section journey-section" id="demo-flow">
-        <div className="section-heading">
-          <span className="eyebrow">Homeowner journey</span>
-          <h2>From early idea to a renovation decision a homeowner can stand behind.</h2>
-          <p>
-            The public demo focuses on the visible homeowner experience: organizing
-            needs, clarifying decisions, and preparing the next partner conversation.
-          </p>
-        </div>
-        <div className="journey-flow" aria-label="Five-step homeowner journey">
-          {journey.map((step, index) => (
-            <article className="journey-step" key={step.title}>
-              <span className="step-number">{String(index + 1).padStart(2, "0")}</span>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section partner-section" id="partners">
-        <div className="section-heading">
-          <span className="eyebrow">Partner pitch</span>
-          <h2>A neutral trust layer for businesses already touching renovation decisions.</h2>
-          <p>
-            CraftSure can improve handoffs between homeowners, service providers,
-            financing, protection, and property workflows.
-          </p>
-        </div>
-        <div className="partner-grid">
-          {partners.map(({ title, icon: Icon, body }) => (
-            <article className="partner-card" key={title}>
+        <div className="engine-map" aria-label="Renovation intelligence stages">
+          <div className="connection-line" aria-hidden="true" />
+          {engineStages.map(({ title, insight, output, icon: Icon }, index) => (
+            <article className="engine-card reveal" key={title} style={cssVars({ "--delay": `${index * 90}ms` })}>
+              <div className="stage-index">{String(index + 1).padStart(2, "0")}</div>
               <Icon size={24} aria-hidden="true" />
               <h3>{title}</h3>
-              <p>{body}</p>
+              <p>{insight}</p>
+              <span>{output}</span>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section thesis" id="thesis">
-        <div className="thesis-panel">
-          <span className="eyebrow">Investor thesis</span>
-          <h2>
-            CraftSure is positioned as a renovation trust layer that can sit between
-            homeowners, contractors, and partners.
-          </h2>
-        </div>
-        <div className="thesis-copy">
+      <section className="section transformation-section" id="story">
+        <div className="section-heading reveal">
+          <span className="eyebrow">Homeowner transformation story</span>
+          <h2>From renovation anxiety to coordinated confidence.</h2>
           <p>
-            Renovation decisions are expensive, fragmented, and hard for consumers to
-            evaluate. CraftSure gives the market a structured public-facing experience
-            for project clarity, partner coordination, and decision confidence.
+            CraftSure reframes a high-stress purchase into a structured, human-centered
+            decision journey.
           </p>
-          <div className="thesis-points">
-            <span>Consumer decision support</span>
-            <span>Partner-ready workflow</span>
-            <span>Trust-layer positioning</span>
+        </div>
+        <div className="before-after">
+          <article className="story-panel before reveal">
+            <span className="micro-label">Before CraftSure</span>
+            <h3>Every decision feels isolated.</h3>
+            <ul>
+              {beforeStates.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+          <div className="story-divider" aria-hidden="true">
+            <ArrowRight size={26} />
+          </div>
+          <article className="story-panel after reveal">
+            <span className="micro-label">After CraftSure</span>
+            <h3>The renovation path becomes legible.</h3>
+            <ul>
+              {afterStates.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section className="section ecosystem-section" id="ecosystem">
+        <div className="section-heading reveal">
+          <span className="eyebrow">Partner ecosystem visualization</span>
+          <h2>CraftSure sits between the stakeholders renovation already depends on.</h2>
+          <p>
+            The platform concept is a neutral coordination surface for homeowner intent,
+            partner readiness, and trust-centered renovation decisions.
+          </p>
+        </div>
+        <div className="ecosystem-map" aria-label="Renovation ecosystem map">
+          <div className="ecosystem-rings" aria-hidden="true" />
+          <div className="center-node">
+            <Sparkles size={26} aria-hidden="true" />
+            <strong>CraftSure</strong>
+            <span>renovation intelligence infrastructure</span>
+          </div>
+          {ecosystemNodes.map(({ label, icon: Icon, className }) => (
+            <article className={`ecosystem-node ${className}`} key={label}>
+              <Icon size={20} aria-hidden="true" />
+              <span>{label}</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section trust-section" id="trust">
+        <div className="section-heading reveal">
+          <span className="eyebrow">Trust / risk experience</span>
+          <h2>Transparent interfaces for the moments where homeowners need clarity.</h2>
+          <p>
+            The public product vision emphasizes explainable placeholder insights,
+            structured review states, and partner-assisted next steps.
+          </p>
+        </div>
+        <div className="trust-workbench">
+          <div className="readiness-panel reveal">
+            <span className="micro-label">Renovation readiness</span>
+            <h3>Decision brief generated for partner conversation</h3>
+            <div className="readiness-bars" aria-hidden="true">
+              <span style={cssVars({ "--bar": "88%" })} />
+              <span style={cssVars({ "--bar": "68%" })} />
+              <span style={cssVars({ "--bar": "76%" })} />
+            </div>
+            <p>
+              Simulated readiness surfaces show what a homeowner may need to clarify
+              before contractor selection, financing, or protection workflows.
+            </p>
+          </div>
+          <div className="trust-grid">
+            {trustPanels.map(({ title, body, icon: Icon }, index) => (
+              <article className="trust-card reveal" key={title} style={cssVars({ "--delay": `${index * 70}ms` })}>
+                <Icon size={21} aria-hidden="true" />
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="section moat-section">
-        <div className="moat-card">
-          <span className="eyebrow">Moat, safely stated</span>
+      <section className="section infrastructure-section" id="thesis">
+        <div className="infrastructure-copy reveal">
+          <span className="eyebrow">Why this becomes infrastructure</span>
+          <h2>Renovation needs a shared decision layer before the transaction.</h2>
+          <p>
+            CraftSure can become infrastructure by standardizing how projects are
+            understood, how trust is communicated, and how partners coordinate around
+            the homeowner journey.
+          </p>
+        </div>
+        <div className="infrastructure-grid">
+          {infrastructurePoints.map((point, index) => (
+            <article className="infrastructure-card reveal" key={point} style={cssVars({ "--delay": `${index * 80}ms` })}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{point}</strong>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section boundary-section" id="boundary">
+        <div className="boundary-card reveal">
+          <span className="eyebrow">Demo boundary / IP protection</span>
           <p>
             “CraftSure is powered by a proprietary structured knowledge layer for
             organizing renovation entities, workflows, trust signals, and project risks.
@@ -290,50 +396,29 @@ export function App() {
             datasets remain private.”
           </p>
         </div>
-      </section>
-
-      <section className="section privacy-section" id="private">
-        <div className="section-heading">
-          <span className="eyebrow">What is intentionally private</span>
-          <h2>The demo boundary is part of the product story.</h2>
-          <p>
-            This page is designed for public review. It communicates the opportunity
-            while keeping confidential systems out of view.
-          </p>
-        </div>
-        <div className="privacy-grid">
-          <article>
-            <h3>Public Demo Shows:</h3>
-            <ul>
-              {publicItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-          <article>
-            <h3>Private System Contains:</h3>
-            <ul>
-              {privateItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
+        <div className="excluded-card reveal">
+          <h2>Public demo intentionally excludes:</h2>
+          <ul>
+            {excludedItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
       <section className="cta-section section">
-        <span className="eyebrow">Partner with CraftSure</span>
-        <h2>Help homeowners make better renovation decisions before the expensive mistakes happen.</h2>
+        <span className="eyebrow">Strategic demo</span>
+        <h2>The future renovation interface is calmer, clearer, and more coordinated.</h2>
         <div className="hero-actions">
           <a
             className="button primary"
-            href="mailto:partners@craftsure.ai?subject=CraftSure%20Partner%20Demo%20Request"
+            href="mailto:partners@craftsure.ai?subject=CraftSure%20Strategic%20Demo%20Request"
           >
-            Request Partner Demo
+            Request Strategic Demo
             <ArrowRight size={18} aria-hidden="true" />
           </a>
-          <a className="button secondary" href="#demo-flow">
-            View Demo Flow
+          <a className="button secondary" href="#engine">
+            Explore Product Vision
             <Map size={18} aria-hidden="true" />
           </a>
         </div>

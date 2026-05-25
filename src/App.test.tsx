@@ -6,9 +6,9 @@ describe("CraftSure investor demo", () => {
   it("renders the public demo narrative and privacy boundary", () => {
     const html = renderToStaticMarkup(<App />);
 
-    expect(html).toContain("Request Partner Demo");
-    expect(html).toContain("Project Confidence");
-    expect(html).toContain("Homeowner journey");
-    expect(html).toContain("Private System Contains:");
+    expect(html).toContain("Request Strategic Demo");
+    expect(html).toContain("Renovation decisions deserve intelligence infrastructure.");
+    expect(html).toContain("Renovation intelligence engine");
+    expect(html).toContain("Public demo intentionally excludes:");
   });
 });
